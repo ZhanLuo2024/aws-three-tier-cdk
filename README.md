@@ -1,14 +1,48 @@
-# Welcome to your CDK TypeScript project
+# AWS 3-Tier Architecture with CDK (TypeScript)
 
-This is a blank project for CDK development with TypeScript.
+## Overview
+This project demonstrates a 3-tier architecture built with AWS CDK using TypeScript. It includes a public-facing ALB, EC2-based web application layer, and a MySQL RDS backend database. Security groups, IAM roles, and modularized infrastructure code are included to mimic a real-world setup.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Architecture Diagram
+> *(Diagram to be added – optional: draw.io or hand-sketched)*
 
-## Useful commands
+## Components
+- **VPC**: Public & private subnets across two AZs
+- **ALB**: Internet-facing with listener targeting EC2
+- **EC2**: Amazon Linux instance, SSH enabled (bastion or app)
+- **RDS**: MySQL 8.0, deployed privately
+- **IAM Role**: For EC2 to access SSM
+- **Security Groups**: Isolated and minimal
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `npx cdk deploy`  deploy this stack to your default AWS account/region
-* `npx cdk diff`    compare deployed stack with current state
-* `npx cdk synth`   emits the synthesized CloudFormation template
+## Folder Structure
+
+```bash
+.
+├── bin/
+│   └── cloud-architecture-cdk.ts     # Entry point
+├── lib/
+│   ├── vpc.ts                        # VPC + Subnets
+│   ├── ec2.ts                        # EC2 Instance
+│   ├── alb.ts                        # Application Load Balancer
+│   ├── rds.ts                        # RDS MySQL
+│   ├── sg.ts                         # Security Groups
+│   ├── iam.ts                        # IAM Role for EC2
+│   └── stack.ts                      # Stack assembly
+├── cdk.json
+├── package.json
+└── README.md
+```
+
+## How to Use 
+
+```bash
+npm install
+cdk synth
+```
+
+## Future Improvements
+
+- Add CDK unit tests
+- Integrate CI/CD with Github Actions
+- Add monitoring and alarms (CloudWatch)
+
