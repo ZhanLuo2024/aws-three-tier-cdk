@@ -4,7 +4,8 @@
 This project demonstrates a 3-tier architecture built with AWS CDK using TypeScript. It includes a public-facing ALB, EC2-based web application layer, and a MySQL RDS backend database. Security groups, IAM roles, and modularized infrastructure code are included to mimic a real-world setup.
 
 ## Architecture Diagram
-> *(Diagram to be added – optional: draw.io or hand-sketched)*
+> ![Architecture Diagram](./assets/Architecture-Diagram.png)
+
 
 ## Components
 - **VPC**: Public & private subnets across two AZs
